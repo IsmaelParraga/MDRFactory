@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>MDR Factory</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shantell+Sans:wght@300;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Shantell Sans', cursive;
+            background: beige;
+            color: #000;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            transition: background 0.5s ease;
+        }
+
+        header, footer {
+            background: #FFD700;
+            padding: 20px;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .box {
+            background: white;
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            max-width: 800px;
+        }
+		
+        }
+
+        .form-container label, .form-container input, .form-container button {
+            display: block;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .form-container input, .form-container button {
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .form-container button {
+            background-color: #FFD700;
+            border: none;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+
+        .form-container button:hover {
+            background-color: #FFC300;
+        }
+
+        .videos .video-container {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        iframe {
+            width: 100%;
+            max-width: 800px;
+            height: 450px;
+        }
+
+        .like-container {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+		.images-container {
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           flex-wrap: wrap;
+           text-align: center;
+           width: 100%;
+        }
+
+        .images-container img {
+            width: 150px;
+            height: auto;
+            border-radius: 10px;
+		}
+
+        .heart {
+            font-size: 2em;
+            color: transparent;
+            -webkit-text-stroke: 2px red;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .heart.liked {
+            color: red;
+            -webkit-text-stroke: 0px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <span>MDR Factory</span>
+    </header>
+
+    <div class="container">
+        <div class="box">
+            <h1>🔥 Bienvenue sur MDR Factory ! 🔥</h1>
+            <p>Ici, les meilleurs memes du moment sont à l’honneur.</p>
+        </div>
+
+        <!-- Formulaire -->
+        <div class="box form-container">
+            <h2>Répondez à la question</h2>
+            <form id="questionForm">
+                <label for="identifiant">Identifiant :</label>
+                <input type="text" id="identifiant" required>
+                <label for="password">Mot de passe :</label>
+                <input type="password" id="password" required>
+                <label for="reponse">Quelle est la couleur du ciel ?</label><br>  
+                <input type="text" id="reponse" required>
+                <button type="button" onclick="verifierFormulaire()">Envoyer</button>
+                <p id="message"></p>
+            </form>
+        </div>
+		
+		<div class="box images-container">
+            <img src="https://venngage-wordpress.s3.amazonaws.com/uploads/2022/09/meme_handsome_squidward.png" alt="Meme 1">
+            <img src="https://static.thenounproject.com/png/105264-200.png" alt="Meme 2">
+            <img src="images/memeface.png" alt="Meme 3">
+            <img src="images/nsiimage.png" alt="Meme 4">
+        </div>
+
+        <!-- Vidéos -->
+        <div class="box videos">
+            <h2>Vidéos populaires</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/8jkJvAW0EM0?controls=0" allowfullscreen></iframe>
+                <div class="like-container"><i class="fas fa-heart heart" onclick="toggleLike(this)"></i></div>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/BfwobTKxR6E?controls=0" allowfullscreen></iframe>
+                <div class="like-container"><i class="fas fa-heart heart" onclick="toggleLike(this)"></i></div>
+            </div>
+			<div class="video-container">
+                <iframe src="https://www.youtube.com/embed/w1vQJ6I0ZzU?controls=0" allowfullscreen></iframe>
+                <div class="like-container"><i class="fas fa-heart heart" onclick="toggleLike(this)"></i></div>
+            </div>
+			<div class="video-container">
+                <iframe src="https://www.youtube.com/embed/Fegggf8tnQw?controls=0" allowfullscreen></iframe>
+                <div class="like-container"><i class="fas fa-heart heart" onclick="toggleLike(this)"></i></div>
+            </div>
+			<div class="video-container">
+                <iframe src="https://www.youtube.com/embed/Y4jxiBUnqNE?controls=0" allowfullscreen></iframe>
+                <div class="like-container"><i class="fas fa-heart heart" onclick="toggleLike(this)"></i></div>
+            </div>
+			<div class="video-container">
+                <iframe src="https://www.youtube.com/embed/BeXs4jHb4Bg?controls=0" allowfullscreen></iframe>
+                <div class="like-container"><i class="fas fa-heart heart" onclick="toggleLike(this)"></i></div>
+            </div>
+        </div>
+		<div class="box">
+            <h2>Les étapes pour créer un bon meme</h2>
+            <ol>
+                <li>Trouver une image drôle</li>
+                <li>Ajouter un texte percutant</li>
+                <li>Partager sur les réseaux sociaux</li>
+            </ol>
+        </div>
+		<div class="box">
+            <h2>Les types de memes populaires</h2>
+            <ul>
+                <li>Memes avec des réactions</li>
+                <li>Memes basés sur des vidéos virales</li>
+                <li>Memes textuels</li>
+            </ul>
+</div>
+
+
+</div>
+
+    </div>
+
+    <footer>
+        <span>&copy; 2025 MDR Factory - Tous droits réservés</span>
+    </footer>
+
+    <script>
+        function toggleLike(element) {
+            element.classList.toggle("liked");
+        }
+
+        function verifierFormulaire() {
+            let identifiant = document.getElementById("identifiant").value;
+            let password = document.getElementById("password").value;
+            let reponse = document.getElementById("reponse").value.toLowerCase();
+
+            if (identifiant === "" || password === "" || reponse === "") {
+                document.getElementById("message").innerText = "⚠️ Tous les champs sont obligatoires.";
+                document.getElementById("message").style.color = "red";
+                return;
+            }
+
+            if (reponse === "bleu") {
+                document.getElementById("message").innerText = "✅ Réponse correcte !";
+                document.getElementById("message").style.color = "green";
+            } else {
+                document.getElementById("message").innerText = "❌ Mauvaise réponse.";
+                document.getElementById("message").style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>
